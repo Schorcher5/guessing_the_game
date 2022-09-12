@@ -4,10 +4,10 @@ use std::cmp::Ordering;
 
 fn main() {
     println!("Guess the number!");
+    let secret_num = rand::thread_rng().gen_range(1..=100);
     loop {
         println!("Input your guess into the command line");
 
-        let secret_num = rand::thread_rng().gen_range(1..=100);
 
         let mut guess = String::new();
     
@@ -20,7 +20,6 @@ fn main() {
             Err(_) => continue,
         };
         println!("You guessed: {guess}");
-
         match guess.cmp(&secret_num) {
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
